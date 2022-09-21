@@ -1,0 +1,26 @@
+.side-nav {
+    grid-area: snav;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navicon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.side-nav p {
+    color: white;
+    text-align: center;
+    writing-mode: vertical-rl;
+    line-height: 4rem;
+    transform: rotate(180deg);
+    font-size: 10px;
+}
+

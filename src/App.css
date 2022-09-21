@@ -3,6 +3,14 @@
   --primary-grey: 282D30;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .App {
   display: grid;
   grid-template: "nav  nav  nav  nav" 60px

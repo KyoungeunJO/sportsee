@@ -2,3 +2,13 @@
   --primary-red: E60000;
   --primary-grey: 282D30;
 }
+
+.App {
+  display: grid;
+  grid-template: "nav  nav  nav  nav" 60px
+                 "snav head  .    . " 80px
+                 "snav mcht  mt   . " 220px
+                 "snav ch    mt   . " 210px
+                 "snav .     .    . " 1fr
+                 / 100px 1fr 200px 30px;
+}

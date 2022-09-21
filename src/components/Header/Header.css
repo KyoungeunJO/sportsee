@@ -1,0 +1,7 @@
+header {
+    grid-area: head;
+}
+
+.name {
+    color: #FF0101;
+}

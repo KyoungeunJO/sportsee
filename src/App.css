@@ -1,6 +1,9 @@
+@import url('http://fonts.cdnfonts.com/css/roboto');
+
 :root {
   --primary-red: E60000;
   --primary-grey: 282D30;
+  font-family: Roboto, sans-serif;
 }
 
 * {

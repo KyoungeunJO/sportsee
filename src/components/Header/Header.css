@@ -2,6 +2,10 @@ header {
     grid-area: head;
 }
 
+header h1 {
+    font-size: 1.5rem;
+}
+
 .name {
     color: #FF0101;
 }

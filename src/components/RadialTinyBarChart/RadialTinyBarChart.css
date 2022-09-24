@@ -1,0 +1,17 @@
+.radial-svg {
+    background-color: #FBFBFB;
+}
+
+.objective-metric {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.objective-text {
+    fill: grey;
+    font-size: 1.1rem;
+}
+
+.progress-title {
+    font-size: 1.2rem;
+}

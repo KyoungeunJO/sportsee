@@ -1,0 +1,17 @@
+.linechart {
+    background-color: #FF0000;
+    color: white;
+}
+
+.linechart-title {
+    fill: #EA6765;
+    font-size: .8rem;
+}
+
+.custom-tooltip {
+    background-color: white;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    padding: 2px 5px;
+}

@@ -16,10 +16,37 @@ body {
 
 .App {
   display: grid;
-  grid-template: "nav  nav  nav  nav" 60px
-                 "snav head  .    . " 80px
-                 "snav mcht  mt   . " 220px
-                 "snav ch    mt   . " 210px
-                 "snav .     .    . " 1fr
-                 / 100px 1fr 200px 30px;
+  grid-template: "nav  nav" 60px
+                 "snav main" 1fr
+                 / 70px 1fr;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  gap: 20px;
+  margin-left: 2rem;
+  grid-template: "head  .    . " 4fr
+                 "mcht  mt   . " 9fr
+                 "ch    mt   . " 8fr
+                 ".     .    . " 30px
+                 / 1fr minmax(200px, 250px) 30px;
+}
+
+.charts {
+  grid-area: ch;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recharts-surface {
+  width: auto;
+  height: 100%;
+}
+
+.recharts-wrapper {
+  display: flex;
+  justify-content: center;
+  width: auto !important;
+  height: 100% !important;
 }

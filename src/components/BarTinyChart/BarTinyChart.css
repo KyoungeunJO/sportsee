@@ -1,0 +1,15 @@
+.barchart {
+    grid-area: mcht;
+    background-color: #FBFBFB;
+}
+
+.custom-tooltip-label-bar {
+    color: white;
+    background-color: red;
+    font-size: .7rem;
+}
+
+.custom-tooltip-bar {
+    background-color: red;
+    padding: 5px;
+}

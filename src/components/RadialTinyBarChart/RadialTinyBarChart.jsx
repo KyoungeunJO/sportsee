@@ -1,28 +1,28 @@
 import "./RadialTinyBarChart.css"
 import { RadialBarChart, RadialBar, Legend } from "recharts";
-import { useState } from "react";
+import useUserInfos from '../../services/useUseInfos'
 
-const data = [
-  {
-    uv: 100,
-    fill: "#FFFFFF"
-  },
-  {
-    uv: 68,
-    fill: "#FF0000"
-  }
-];
-
-const style = {
-  top: 0,
-  left: 350,
-};
 
 export default function RadialTinyBarChart() {
 
-  const [completion, setCompletion] = useState(0)
+  const {todayScore, score} = useUserInfos()
+  const _score = todayScore ? todayScore*100 : score*100 // API returns inconsistent data
+
+  const data = [
+    {
+      uv: 100,
+      fill: "#FFFFFF"
+    },
+    {
+      uv: _score,
+      fill: "#FF0000"
+    }
+  ];
 
   return (
+    <>
+    {_score &&
+    <>
     <RadialBarChart
       className="radial-svg"
       width={200}
@@ -60,10 +60,14 @@ export default function RadialTinyBarChart() {
         dominantBaseline="middle"
         className="progress-label"
       >
-        <tspan x="100" className="objective-metric">{`${completion}%`}</tspan>
+        <tspan x="100" className="objective-metric">{`${_score}%`}</tspan>
         <tspan x="100" dy="1.6em" className="objective-text">de votre</tspan>
         <tspan x="100" dy="1.6em" className="objective-text">objectif</tspan>
+      
       </text>
     </RadialBarChart>
+    </>
+    }
+    </>
   );
 }

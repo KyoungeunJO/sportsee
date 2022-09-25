@@ -1,4 +1,5 @@
 import "./BarTinyChart.css";
+import useUserActivity from '../../services/useUserActivity';
 import {
   BarChart,
   Bar,
@@ -63,12 +64,18 @@ const data = [
 ];
 
 export default function BarTinyChart() {
+
+  const {sessions} = useUserActivity({})
+
   return (
+    <>
+    {sessions &&
+    <>
     <div className="barchart">
       <BarChart
         width={700}
         height={200}
-        data={data}
+        data={sessions}
         margin={{
           top: 35,
           right: 20,
@@ -81,7 +88,7 @@ export default function BarTinyChart() {
       />
         <text x="30" y="25">Activités quotidiennes</text>
         <CartesianGrid strokeDasharray="1" vertical={false} />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="day" />
         <YAxis  orientation="right" interval="preserveStartEnd" />
         <Tooltip />
         <Legend layout="horizontal" 
@@ -95,10 +102,13 @@ export default function BarTinyChart() {
                   left: 470,
                 }} />
                 
-        <Bar legendType="circle" dataKey="Poids (kg)" fill="#282D30" radius={[10, 10, 0, 0]} barSize={8}/>
-        <Bar legendType="circle" dataKey="Calories brûlées (kCal)" fill="#E60000" radius={[10, 10, 0, 0]} barSize={8}/>
+        <Bar legendType="circle" dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={8}/>
+        <Bar legendType="circle" dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={8}/>
       </BarChart>
     </div>
+    </>
+    }
+    </>
   );
 }
 

@@ -29,8 +29,8 @@ body {
   grid-template: "head  .    . " 4fr
                  "mcht  mt   . " 9fr
                  "ch    mt   . " 8fr
-                 ".     .    . " 30px
-                 / 1fr minmax(200px, 250px) 30px;
+                 ".     .    . " 5px
+                 / 1fr minmax(200px, 250px) 5px;
 }
 
 .charts {

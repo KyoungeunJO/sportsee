@@ -1,6 +1,11 @@
 import './Header.css'
 import PropTypes from 'prop-types'
 
+/**
+ * Component saying hello to the user.
+ * 
+ * @component
+ */
 function Header({userInfos}) {
 
     return (

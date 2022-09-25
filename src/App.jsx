@@ -7,23 +7,27 @@ import BarTinyChart from './components/BarTinyChart/BarTinyChart'
 import LineTinyChart from './components/LineChart/LineTinyChart'
 import RadarSimpleChart from './components/RadarSimpleChart/RadarSimpleChart'
 import RadialTinyBarChart from './components/RadialTinyBarChart/RadialTinyBarChart'
+import useUserInfos from './services/useUseInfos'
 
 function App() {
 
   console.log('Render App');
+
+  const {userInfos, keyData, todayScore, score} = useUserInfos()
+  const _score = todayScore ? todayScore*100 : score*100 // API returns inconsistent data
 
   return (
       <div className="App">
         <Nav />
         <SideNav />
         <div className='main'>
-          <Header />
-          <Metrics />
+          <Header userInfos={userInfos} />
+          <Metrics keyData={keyData}/>
           <BarTinyChart />
           <div className="charts">
             <LineTinyChart />
             <RadarSimpleChart />
-            <RadialTinyBarChart />
+            <RadialTinyBarChart score={_score} />
           </div>
         </div>
       </div>

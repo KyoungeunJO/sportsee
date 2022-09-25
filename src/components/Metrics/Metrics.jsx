@@ -3,11 +3,8 @@ import energy from '../../assets/energy.svg'
 import chicken from '../../assets/chicken.svg'
 import apple from '../../assets/apple.svg'
 import cheeseburger from '../../assets/cheeseburger.svg'
-import useUserInfos from '../../services/useUseInfos'
 
-function Metrics() {
-
-    const {keyData} = useUserInfos()
+function Metrics({keyData}) {
 
     return(
         <div className='container-metrics'>

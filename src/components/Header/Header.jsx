@@ -1,9 +1,6 @@
 import './Header.css'
-import useUserInfos from '../../services/useUseInfos'
 
-function Header() {
-
-    const {userInfos} = useUserInfos()
+function Header({userInfos}) {
 
     return (
         <header>

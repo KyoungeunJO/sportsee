@@ -7,7 +7,7 @@ import BarTinyChart from './components/BarTinyChart/BarTinyChart'
 import LineTinyChart from './components/LineChart/LineTinyChart'
 import RadarSimpleChart from './components/RadarSimpleChart/RadarSimpleChart'
 import RadialTinyBarChart from './components/RadialTinyBarChart/RadialTinyBarChart'
-import useUserInfos from './services/useUseInfos'
+import useUserInfos from './services/useUserInfos'
 
 function App() {
 

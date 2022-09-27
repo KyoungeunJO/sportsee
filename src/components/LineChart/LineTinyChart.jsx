@@ -1,45 +1,27 @@
 import "./LineTinyChart.css";
+import useUserAverageSessions from '../../services/useUserAverageSessions'
 import { LineChart, Line, XAxis, Tooltip, Rectangle } from "recharts";
 
-const data = [
-  {
-    name: "L",
-    pv: 2400,
-  },
-  {
-    name: "M",
-    pv: 1398,
-  },
-  {
-    name: "M",
-    pv: 9800,
-  },
-  {
-    name: "J",
-    pv: 3908,
-  },
-  {
-    name: "V",
-    pv: 4800,
-  },
-  {
-    name: "S",
-    pv: 3800,
-  },
-  {
-    name: "D",
-    pv: 4300,
-  }
-];
-
 export default function LineTinyChart() {
+
+  let {sessions} = useUserAverageSessions({})
+  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+  sessions = sessions?.map(e => {
+    e.day = days[e.day-1]
+    return e
+  })
+  
   return (
-    <LineChart width={200} height={200} data={data} className="linechart">
+    <>
+    {sessions &&
+    <>
+    <LineChart width={200} height={200} data={sessions} className="linechart">
       <Tooltip
         content={<CustomTooltip />}
         cursor={<CustomCursor />}
       />
-    <XAxis dataKey="name" stroke="#FFFF" axisLine={false} tickLine={false} tickSize="16"/>
+    <XAxis dataKey="day" stroke="#FFFF" axisLine={false} tickLine={false} tickSize="16"/>
       <text
           x={0}
           y={20}
@@ -53,12 +35,14 @@ export default function LineTinyChart() {
             width={100}
             height={100}
             type="monotone" 
-            dataKey="pv"
+            dataKey="sessionLength"
             stroke="#FFFF"
             dot={false}
             strokeWidth={2} />
     </LineChart>
-    
+    </>
+    }
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import "./RadarSimpleChart.css";
+import useUserPerformance from "../../services/useUserPerformance";
 import {
   Radar,
   RadarChart,
@@ -7,47 +8,21 @@ import {
   PolarRadiusAxis
 } from "recharts";
 
-const data = [
-  {
-    subject: "Intensité",
-    A: 120,
-    B: 110,
-    fullMark: 150
-  },
-  {
-    subject: "Vitesse",
-    A: 98,
-    B: 130,
-    fullMark: 150
-  },
-  {
-    subject: "Force",
-    A: 86,
-    B: 130,
-    fullMark: 150
-  },
-  {
-    subject: "Endurance",
-    A: 99,
-    B: 100,
-    fullMark: 150
-  },
-  {
-    subject: "Energie",
-    A: 85,
-    B: 90,
-    fullMark: 150
-  },
-  {
-    subject: "Cardio",
-    A: 65,
-    B: 85,
-    fullMark: 150
-  }
-];
-
 export default function RadarSimpleChart() {
+
+  let {kind, data} = useUserPerformance({})
+
+  data = data?.map(e => {
+    e.fullMark = 150
+    const kindNum = e.kind
+    e.kind = kind[kindNum.toString()]
+    return e
+  })
+
   return (
+    <>
+    {data &&
+    <>
     <RadarChart
     className="radar-simple-chart"
     cx={100}
@@ -58,14 +33,17 @@ export default function RadarSimpleChart() {
     data={data}
     >
     <PolarGrid />
-    <PolarAngleAxis dataKey="subject" />
+    <PolarAngleAxis dataKey="kind" />
     <Radar
         name="Mike"
-        dataKey="A"
+        dataKey="value"
         fill="#FF0101"
         fillOpacity={0.6}
     />
     </RadarChart>
+    </>
+    }
+    </>
   );
 }
 

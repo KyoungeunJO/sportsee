@@ -10,62 +10,16 @@ import {
   Legend
 } from "recharts";
 
-const data = [
-  {
-    name: "1",
-    "Poids (kg)" : 69.5,
-    "Calories brûlées (kCal)" : 302
-  },
-  {
-    name: "2",
-    "Poids (kg)": 70.1,
-    "Calories brûlées (kCal)": 335
-  },
-  {
-    name: "3",
-    "Poids (kg)": 71.5,
-    "Calories brûlées (kCal)": 356
-  },
-  {
-    name: "4",
-    "Poids (kg)": 68.3,
-    "Calories brûlées (kCal)": 367
-  },
-  {
-    name: "5",
-    "Poids (kg)": 69.7,
-    "Calories brûlées (kCal)": 355
-  },
-  {
-    name: "6",
-    "Poids (kg)": 68.9,
-    "Calories brûlées (kCal)": 370
-  },
-  {
-    name: "7",
-    "Poids (kg)": 69,
-    "Calories brûlées (kCal)": 355
-  },
-  {
-    name: "8",
-    "Poids (kg)": 70.5,
-    "Calories brûlées (kCal)": 370,
-  },
-  {
-    name: "9",
-    "Poids (kg)": 70.1,
-    "Calories brûlées (kCal)": 390
-  },
-  {
-    name: "10",
-    "Poids (kg)": 68.7,
-    "Calories brûlées (kCal)": 405
-  }
-];
 
 export default function BarTinyChart() {
 
-  const {sessions} = useUserActivity({})
+  let {sessions} = useUserActivity({})
+
+  sessions = sessions?.map(e => {
+    e["Poids (kg)"] = e.kilogram,
+    e["Calories brûlées (kCal)"] = e.calories
+    return e
+  })
 
   return (
     <>
@@ -102,8 +56,8 @@ export default function BarTinyChart() {
                   left: 470,
                 }} />
                 
-        <Bar legendType="circle" dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={8}/>
-        <Bar legendType="circle" dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={8}/>
+        <Bar legendType="circle" dataKey="Poids (kg)" fill="#282D30" radius={[10, 10, 0, 0]} barSize={8}/>
+        <Bar legendType="circle" dataKey="Calories brûlées (kCal)" fill="#E60000" radius={[10, 10, 0, 0]} barSize={8}/>
       </BarChart>
     </div>
     </>

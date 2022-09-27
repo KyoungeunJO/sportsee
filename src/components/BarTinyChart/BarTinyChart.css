@@ -13,3 +13,7 @@
     background-color: red;
     padding: 5px;
 }
+
+.recharts-cartesian-axis-ticks {
+    font-size: 0.6rem;
+}

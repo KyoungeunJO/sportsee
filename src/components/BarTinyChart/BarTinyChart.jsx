@@ -1,4 +1,5 @@
 import "./BarTinyChart.css";
+import PropTypes from 'prop-types'
 import useUserActivity from '../../services/useUserActivity';
 import {
   BarChart,
@@ -10,8 +11,12 @@ import {
   Legend
 } from "recharts";
 
-
-export default function BarTinyChart() {
+/**
+ * Component displaying daily activity kilogram and calories burned.
+ * 
+ * @component
+ */
+function BarTinyChart() {
 
   let {sessions} = useUserActivity({})
 
@@ -77,3 +82,13 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
+
+BarTinyChart.propTypes = {
+  sessions: PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired
+  })
+}
+
+export default BarTinyChart

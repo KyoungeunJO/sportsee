@@ -1,6 +1,11 @@
 import './Nav.css'
 import logo from '../../assets/logo.svg';
 
+/**
+ * Navigation component
+ * 
+ * @component
+ */
 function Nav() {
     return (
         <nav>

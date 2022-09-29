@@ -9,6 +9,10 @@ import RadarSimpleChart from './components/RadarSimpleChart/RadarSimpleChart'
 import RadialTinyBarChart from './components/RadialTinyBarChart/RadialTinyBarChart'
 import useUserInfos from './services/useUserInfos'
 
+/**
+ * Component displaying the dashboard page
+ * @component
+ */
 function App() {
 
   console.log('Render App');

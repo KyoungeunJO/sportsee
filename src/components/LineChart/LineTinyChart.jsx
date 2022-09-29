@@ -1,8 +1,14 @@
 import "./LineTinyChart.css";
+import PropTypes from 'prop-types';
 import useUserAverageSessions from '../../services/useUserAverageSessions'
 import { LineChart, Line, XAxis, Tooltip, Rectangle } from "recharts";
 
-export default function LineTinyChart() {
+/**
+ * Component displaying average duration of sessions per day.
+ * 
+ * @component
+ */
+function LineTinyChart() {
 
   let {sessions} = useUserAverageSessions({})
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -71,3 +77,12 @@ const CustomCursor = (props) => {
       />
   )
 }
+
+LineTinyChart.propTypes = {
+  sessions: PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      sessionLength: PropTypes.number.isRequired
+  })
+}
+
+export default LineTinyChart

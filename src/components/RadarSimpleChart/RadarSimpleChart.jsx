@@ -1,4 +1,5 @@
 import "./RadarSimpleChart.css";
+import PropTypes from 'prop-types';
 import useUserPerformance from "../../services/useUserPerformance";
 import {
   Radar,
@@ -8,7 +9,12 @@ import {
   PolarRadiusAxis
 } from "recharts";
 
-export default function RadarSimpleChart() {
+/**
+ * Component displaying activities' performances.
+ * 
+ * @component
+ */
+function RadarSimpleChart() {
 
   let {kind, data} = useUserPerformance({})
 
@@ -47,6 +53,11 @@ export default function RadarSimpleChart() {
   );
 }
 
+RadarSimpleChart.propTypes = {
+  data: PropTypes.shape({
+      kind: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired
+  })
+}
 
-
-
+export default RadarSimpleChart

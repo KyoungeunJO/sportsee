@@ -5,6 +5,11 @@ import dumbell from '../../assets/dumbell.svg'
 import cycling from '../../assets/cycling.svg'
 import swimming from '../../assets/swimming.svg'
 
+/**
+ * Displays side bar with activities icons
+ * 
+ * @component
+ */
 function SideNav() {
     return(
         <div className='side-nav'>

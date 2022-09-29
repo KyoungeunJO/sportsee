@@ -1,8 +1,13 @@
-import "./RadialTinyBarChart.css"
+import "./RadialTinyBarChart.css";
+import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, Legend } from "recharts";
 
-
-export default function RadialTinyBarChart({score}) {
+/**
+ * Component displaying completion of the daily goal.
+ * 
+ * @component
+ */
+function RadialTinyBarChart({score}) {
 
   const data = [
     {
@@ -67,3 +72,9 @@ export default function RadialTinyBarChart({score}) {
     </>
   );
 }
+
+RadialTinyBarChart.propTypes = {
+  score: PropTypes.number.isRequired
+}
+
+export default RadialTinyBarChart

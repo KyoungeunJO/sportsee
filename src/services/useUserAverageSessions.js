@@ -10,6 +10,7 @@ function useUserAverageSessions() {
         fetch(import.meta.env.VITE_BASE_URL + '/user/' + import.meta.env.VITE_USER_ID + '/average-sessions')
         .then(response => response.json())
         .then(response => setDataAverageSessions(response.data))
+        .catch(error => setDataAverageSessions({error}))
     }, [])
 
     return dataAverageSessions

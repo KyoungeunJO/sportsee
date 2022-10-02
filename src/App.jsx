@@ -17,8 +17,19 @@ function App() {
 
   console.log('Render App');
 
-  const {userInfos, keyData, todayScore, score} = useUserInfos()
+  const {userInfos, keyData, todayScore, score, error} = useUserInfos()
   const _score = todayScore ? todayScore*100 : score*100 // API returns inconsistent data
+
+
+  if (error) {
+    return (
+      <div className="App">
+        <Nav />
+        <SideNav />
+        <p>{error.message}</p>
+      </div>
+    )
+  }
 
   return (
       <div className="App">

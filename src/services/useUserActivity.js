@@ -10,6 +10,7 @@ function useUserActivity() {
         fetch(import.meta.env.VITE_BASE_URL + '/user/' + import.meta.env.VITE_USER_ID + '/activity')
         .then(response => response.json())
         .then(response => setDataActivity(response.data))
+        .catch(error => setDataActivity({error}))
     }, [])
 
     return dataActivity

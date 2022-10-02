@@ -6,7 +6,6 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis
 } from "recharts";
 
 /**
@@ -16,7 +15,7 @@ import {
  */
 function RadarSimpleChart() {
 
-  let {kind, data} = useUserPerformance({})
+  let {kind, data, error} = useUserPerformance({})
 
   data = data?.map(e => {
     e.fullMark = 150

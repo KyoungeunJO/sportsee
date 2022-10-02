@@ -7,10 +7,17 @@ function useUserPerformance() {
     const [dataPerformance, setDataPerformance] = useState({})
 
     useEffect(() => {
-        fetch(import.meta.env.VITE_BASE_URL + '/user/' + import.meta.env.VITE_USER_ID + '/performance')
-        .then(response => response.json())
-        .then(response => setDataPerformance(response.data))
-        .catch(error => setDataPerformance({error}))
+        if (import.meta.env.VITE_USE_API == 'true') {
+            fetch(import.meta.env.VITE_BASE_URL + '/user/' + import.meta.env.VITE_USER_ID + '/performance')
+            .then(response => response.json())
+            .then(response => setDataPerformance(response.data))
+            .catch(error => setDataPerformance({error})
+            )
+        }
+        else {
+            import('../mockedData')
+            .then(data => setDataPerformance(data.userPerformance))
+        }
     }, [])
 
     return dataPerformance
